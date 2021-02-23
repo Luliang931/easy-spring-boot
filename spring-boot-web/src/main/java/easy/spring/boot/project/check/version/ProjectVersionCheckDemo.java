@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * @Author: luliangliang
  * @Date: 2021/1/21 7:55 下午
  */
-public class VersionCheck {
+public class ProjectVersionCheckDemo {
 
     public ProjectDomain getProject(){
         ProjectDomain project = new ProjectDomain();
@@ -37,7 +37,6 @@ public class VersionCheck {
         project.setCreator("test");
 
         /**
-         * planApp是Root节点
          * orderApp -》 planApp
          * orderApp -》 creedApp
          * orderApp -》 contractApp
@@ -52,7 +51,7 @@ public class VersionCheck {
         creedAppReleaseEnvs.add(new ApplicationEnvReleaseDomain(true,"wuxi-prod"));
         ApplicationDomain creedApp = new ApplicationDomain("creedApp","履约单中心","履约单中心负责人",new ArrayList<>(),creedAppReleaseEnvs);
         List<ApplicationEnvReleaseDomain> contractAppReleaseEnvs = new ArrayList<>();
-        contractAppReleaseEnvs.add(new ApplicationEnvReleaseDomain(true,"wuxi-prod"));
+        contractAppReleaseEnvs.add(new ApplicationEnvReleaseDomain(false,"wuxi-prod"));
         ApplicationDomain contractApp = new ApplicationDomain("contractApp","合同中心","合同中心负责人",new ArrayList<>(),contractAppReleaseEnvs);
 
         // 相邻关联关系
@@ -97,8 +96,8 @@ public class VersionCheck {
 
     public static void main(String[] args) {
 
-        VersionCheck versionCheck = new VersionCheck();
-        ProjectDomain project = versionCheck.getProject();
+        ProjectVersionCheckDemo projectVersionCheckDemo = new ProjectVersionCheckDemo();
+        ProjectDomain project = projectVersionCheckDemo.getProject();
 
         // 校验的应用
         String checkAppCode = "orderApp";

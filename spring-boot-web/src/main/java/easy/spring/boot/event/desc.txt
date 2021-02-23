@@ -1,0 +1,19 @@
+Java事件机制包括三个部分：事件、事件源(时间管理器)、事件监听器。
+
+关系：
+事件源-----产生----->事件------>被事件监听器发现------>进入事件处理代码
+
+Java事件机与观察者模式的关系
+1、Java事件机制抽象于设计模式中的观察者模式：
+https://blog.csdn.net/pange1991/article/details/81187882
+2、两者之间对比：
+https://blog.csdn.net/axuan_k/article/details/78803382
+
+
+Java web项目中事件机制的运用：
+类：org.springframework.web.context.ContextLoaderListener
+ContextLoaderListener就是监听器，含有一个contextInitialized方法。
+ServletContextEvent是事件。
+ServletContext是事件源。
+
+
